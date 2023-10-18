@@ -26,6 +26,17 @@ const config = {
     },
 
     swcMinify: true,
+
+    // redirect 
+    // async redirects() {
+    //     return [
+    //         {
+    //             source: "/",
+    //             destination: "/admin/login",
+    //             permanent: true,
+    //         },
+    //     ];
+    // },
 };
 
 export default config;
