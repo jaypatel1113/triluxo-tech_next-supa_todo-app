@@ -1,0 +1,4 @@
+@font-face {
+    font-family: 'thunder'; /* This should match the name you use in your Tailwind CSS configuration */
+    src: url('/font/Thunder-BoldLC 700.otf') format('opentype'); /* Specify the correct file path */
+}
