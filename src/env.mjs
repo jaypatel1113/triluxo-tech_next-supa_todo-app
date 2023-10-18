@@ -8,6 +8,8 @@ export const env = createEnv({
      */
     server: {
         NODE_ENV: z.enum(["development", "test", "production"]),
+        ENABLE_TYPE_CHECKING: z.string().default("false"),
+        ENABLE_ESLINT: z.string().default("false"),
     },
 
     /**
@@ -25,6 +27,8 @@ export const env = createEnv({
      */
     runtimeEnv: {
         NODE_ENV: process.env.NODE_ENV,
+        ENABLE_TYPE_CHECKING: process.env.ENABLE_TYPE_CHECKING,
+        ENABLE_ESLINT: process.env.ENABLE_ESLINT,
         // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
     },
     /**

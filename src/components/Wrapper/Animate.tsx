@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { AnimateProps } from "~/types";
+import type { AnimateProps } from "~/types";
 
 const Animate = ({children, effect, className}: AnimateProps) => {
     return (

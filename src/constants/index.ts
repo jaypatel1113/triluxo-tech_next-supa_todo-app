@@ -1,5 +1,5 @@
 // create and import appropriate types 
-const Data = [
+export const Data = [
     {
         id: 1,
         title: "Title 1",

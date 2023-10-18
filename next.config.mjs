@@ -5,38 +5,28 @@
 await import("./src/env.mjs");
 
 /** @type {import("next").NextConfig} */
-const config = {
+const baseConfig = {
     reactStrictMode: true,
 
-    /**
-     * If you are using `appDir` then you must comment the below `i18n` config out.
-     *
-     * @see https://github.com/vercel/next.js/issues/41980
-     */
     i18n: {
         locales: ["en"],
         defaultLocale: "en",
     },
-
-    typescript: {
-        ignoreBuildErrors: true,
-    },
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-
-    swcMinify: true,
-
-    // redirect 
-    // async redirects() {
-    //     return [
-    //         {
-    //             source: "/",
-    //             destination: "/admin/login",
-    //             permanent: true,
-    //         },
-    //     ];
-    // },
 };
 
+const developmentConfig = {
+    // Enable type checking and linting during development.
+    typescript: {
+        ignoreBuildErrors: false,
+    },
+    eslint: {
+        ignoreDuringBuilds: false,
+    },
+    swcMinify: true,
+};
+
+const isProduction = process.env.NODE_ENV === 'production';
+const config = isProduction ? { ...baseConfig } : { ...baseConfig, ...developmentConfig };
+
 export default config;
+
