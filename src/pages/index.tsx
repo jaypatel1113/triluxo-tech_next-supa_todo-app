@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import Layout from "~/layout";
-import LandingPage from "~/components/Pages/LandingPage";
+import Banner from "~/components/Banner";
 
 export default function Home() {
     return (
@@ -13,7 +13,11 @@ export default function Home() {
             </Head>
 
             <Layout>
-                <LandingPage />
+
+                <section className="relative flex justify-center items-center w-full min-h-screen flex-col py-[35px] md:py-[54px] font-thunder">
+                    <Banner />
+                </section>
+                
             </Layout>
         </>
     );
