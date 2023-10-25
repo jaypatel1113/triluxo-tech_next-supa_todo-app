@@ -1,0 +1,16 @@
+.custom-backdrop {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    
+    --extended-by: 100px;
+    bottom: calc(-1 * var(--extended-by));
+    
+    --cut-off: calc(100% - var(--extended-by));
+    -webkit-mask-image: linear-gradient(to bottom, black 0, black var(--cut-off), transparent var(--cut-off));
+    mask-image: linear-gradient(to bottom, black 0, black var(--cut-off), transparent var(--cut-off));
+    
+    --blur: 15px;
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+}

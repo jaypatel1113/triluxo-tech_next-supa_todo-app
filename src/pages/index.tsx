@@ -2,6 +2,8 @@ import Head from "next/head";
 
 import Layout from "~/layout";
 import Banner from "~/components/Banner";
+import Navbar from "~/components/Navbar";
+import About from "~/components/About";
 
 export default function Home() {
     return (
@@ -14,9 +16,22 @@ export default function Home() {
 
             <Layout>
 
-                <section className="relative flex justify-center items-center w-full min-h-screen flex-col py-[35px] md:py-[54px] font-thunder">
+                <Navbar />
+                
+                <section className="relative flex justify-center items-center w-full min-h-[300vh] flex-col py-[35px] md:py-[54px] font-thunder">
                     <Banner />
                 </section>
+
+                <About />
+
+                {/*
+                
+                <Section2 />
+                <Section3 />
+                ...
+                <Footer /> 
+                
+                */}
                 
             </Layout>
         </>

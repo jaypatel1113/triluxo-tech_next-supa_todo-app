@@ -1,6 +1,6 @@
 import { IoChatbubbleSharp } from "react-icons/io5";
 
-import Animate from "./Wrapper/Animate";
+import Animate from "./wrapper/Animate";
 
 import { smallScaleX } from "~/motion";
 
