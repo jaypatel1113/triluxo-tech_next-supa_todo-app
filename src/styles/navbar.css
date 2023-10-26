@@ -3,7 +3,8 @@
     pointer-events: none;
     inset: 0;
     
-    --extended-by: 100px;
+    /* use 10 or 50 or 100 */
+    --extended-by: 50px;
     bottom: calc(-1 * var(--extended-by));
     
     --cut-off: calc(100% - var(--extended-by));

@@ -11,10 +11,10 @@ export const handleScroll = (id: string): void => {
 
     if (window.innerWidth >= 768) {
         // For laptop screens (viewport width greater than or equal to 768px)
-        offset = 120;
+        offset = 85;
     } else {
         // For mobile screens (viewport width less than 768px)
-        offset = 135;
+        offset = 70;
     }
 
     const sectionTop = section?.getBoundingClientRect().top;

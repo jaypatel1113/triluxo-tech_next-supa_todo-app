@@ -53,7 +53,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="fixed top-0 left-0 right-0  w-full z-10 ">
+        <nav className="fixed top-0 left-0 right-0 w-full z-10 ">
             {/* advance backdrop */}
             <div className="custom-backdrop" />
             
@@ -117,7 +117,7 @@ const Navbar = () => {
                             onClick={() => handleChangeActive(i, nav)}
                         >
                             {/* underline  */}
-                            <div className={`absolute top-full h-[2px] bg-white w-0 transition-all duration-200 group-hover:w-full ${active === i ? "!w-full" : "w-0"} rounded-full`} />
+                            <div className={`absolute top-full h-[3px] bg-white w-0 transition-all duration-200 group-hover:w-full ${active === i ? "!w-full" : "w-0"} rounded-full`} />
                             
                             {nav.name}
                         </div>
