@@ -43,3 +43,11 @@
 // };
 
 // export default Faqs;
+
+// const Faqs: React.FC = (): React.ReactNode => {
+//     return <div>
+//         hey
+//     </div>;
+// };
+
+// export default Faqs;
