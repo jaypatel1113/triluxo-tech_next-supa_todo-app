@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { BiRightArrowAlt } from 'react-icons/bi';
 import { RxCross2 } from 'react-icons/rx';
 import { RiMenu3Line } from 'react-icons/ri';
@@ -60,8 +61,11 @@ const Navbar = () => {
             <div className="relative font-sans">
                 <div className="flex flex-col w-full">
                     <div className="flex w-[90%] md:w-[87.5%] mx-auto py-5 justify-between items-center">
-                        <img
+                        <Image
                             src="/logo.svg"
+                            priority={true}
+                            width={1000}
+                            height={1000}
                             className="w-[128px] md:w-[153px] h-auto object-contain"
                             alt="logo"
                         />
