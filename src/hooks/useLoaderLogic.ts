@@ -30,9 +30,9 @@ export const useLoaderLogic = () => {
         return () => abortController.abort();
     }, []);
 
-    // useEffect(() => {
-    //     console.log(loadingPercentage);
-    // }, [loadingPercentage]);
+    useEffect(() => {
+        console.log(loadingPercentage);
+    }, [loadingPercentage]);
 
     // useEffect(() => {
     //     console.log(loaded);
