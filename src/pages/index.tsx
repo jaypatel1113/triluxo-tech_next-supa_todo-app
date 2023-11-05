@@ -1,10 +1,19 @@
 import Head from "next/head";
+import type { GetStaticProps } from "next";
 
 import Layout from "~/layout";
 import Hero from "~/components/Hero";
 import Navbar from "~/components/Navbar";
 import About from "~/components/About";
 import Loader from "~/components/Loader";
+
+type Data = {};
+
+export const getStaticProps: GetStaticProps = async () => {
+    const data: Data = {};
+
+    return { props: { data } };
+};
 
 export default function Home() {
     return (
