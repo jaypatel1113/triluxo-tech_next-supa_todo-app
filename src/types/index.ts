@@ -28,3 +28,16 @@ export type NavItemType = {
     url: string | null,
     name: string,
 }
+
+
+
+// for loading all assets
+export type AssetType = 'image' | 'video' | 'font' | 'svg' | 'generic';
+
+export type Asset = {
+    url: string;
+    type: AssetType;
+    name?: string | null;
+};
+
+export type ApiAssetResponse = Asset[];

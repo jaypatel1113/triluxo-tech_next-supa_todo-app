@@ -37,5 +37,10 @@
     "ct3aMetadata": {
         "initVersion": "7.22.0"
     },
-    "packageManager": "pnpm@8.7.6"
+    "packageManager": "pnpm@8.7.6",
+    "browser": {
+        "fs": false,
+        "os": false,
+        "path": false
+    }
 }

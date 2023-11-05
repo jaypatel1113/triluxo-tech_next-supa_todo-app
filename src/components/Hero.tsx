@@ -4,7 +4,7 @@ import Animate from "./wrapper/Animate";
 
 import { smallScaleX } from "~/motion";
 
-const Banner = () => {
+const Hero = () => {
     return (
         <div>
             demo
@@ -30,4 +30,4 @@ const Banner = () => {
     );
 };
 
-export default Banner;
+export default Hero;

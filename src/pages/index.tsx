@@ -1,9 +1,10 @@
 import Head from "next/head";
 
 import Layout from "~/layout";
-import Banner from "~/components/Banner";
+import Hero from "~/components/Hero";
 import Navbar from "~/components/Navbar";
 import About from "~/components/About";
+import Loader from "~/components/Loader";
 
 export default function Home() {
     return (
@@ -15,11 +16,11 @@ export default function Home() {
             </Head>
 
             <Layout>
-
                 <Navbar />
-                
+
                 <section className="relative flex justify-center items-center w-full min-h-screen flex-col py-[35px] md:py-[54px] font-thunder">
-                    <Banner />
+                    <Loader />      {/* remove this and add to actual place */}
+                    <Hero />
                 </section>
 
                 <About />
