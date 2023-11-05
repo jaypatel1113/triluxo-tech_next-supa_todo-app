@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useAppStore } from "~/store/app";
 import { loadAssets } from "~/utils";
@@ -6,7 +6,7 @@ import type { ApiAssetResponse, Asset } from "~/types";
 
 export const useLoaderLogic = () => {
     const [loadingPercentage, setLoadingPercentage] = useState<number>(0);
-    const { setLoaded, loaded } = useAppStore();
+    const { setLoaded } = useAppStore();
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -25,10 +25,10 @@ export const useLoaderLogic = () => {
         }
 
         setLoaded(false);
-        loadPublicAssets();
+        void loadPublicAssets();
 
         return () => abortController.abort();
-    }, []);
+    }, [setLoaded]);
 
     useEffect(() => {
         console.log(loadingPercentage);
