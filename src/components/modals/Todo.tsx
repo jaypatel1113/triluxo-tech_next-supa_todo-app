@@ -6,14 +6,13 @@ import { update_data } from "~/services/api_requests/update";
 import { useTodoStore } from "~/store/app";
 import { TodoType } from "~/types";
 import { useModalStore } from "~/store/modal";
-import useTodoCRUD from "~/hooks/useTodoCrud";
+import { getData } from "~/services/api_requests/get";
 
 const TodoModal: React.FC = () => {
     const [task, setTask] = useState<string>("");
 
-    const { isEdit, selected_todo } = useTodoStore();
-    const { user } = useLoginStore();
-    const { setApiLoading, setMessage } = useTodoCRUD();
+    const { isEdit, selected_todo, setTodos } = useTodoStore();
+    const { user, setMessage, setApiLoading } = useLoginStore();
     const { modal, setModal } = useModalStore();
     
 
@@ -37,6 +36,8 @@ const TodoModal: React.FC = () => {
 
         setApiLoading(false)
         setModal(null);
+
+        handleGet();
     }
 
     const handleUpdate = async () => {
@@ -44,8 +45,9 @@ const TodoModal: React.FC = () => {
         setApiLoading(true);
 
         if(!user?.id) return;
+        if(!selected_todo) return;
 
-        const object = { task, user_id: user.id };
+        const object = { task, user_id: user.id, id: selected_todo.id };
         const final_data = {...object} as TodoType;
     
         setMessage("Updating todo");
@@ -53,7 +55,24 @@ const TodoModal: React.FC = () => {
 
         setApiLoading(false);
         setModal(null);
+
+        handleGet();
     }
+
+    const handleGet = async () => {
+        setMessage("Fetching todos");
+        setApiLoading(true);
+
+        try {
+            const todos = await getData<TodoType[]>("get");
+            setTodos(todos);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setApiLoading(false);
+            setMessage("");
+        }
+    };
 
     return (
         <div className="fixed top-0 left-0 w-full h-screen z-[5] bg-black/80 flex justify-center items-center font-sans">

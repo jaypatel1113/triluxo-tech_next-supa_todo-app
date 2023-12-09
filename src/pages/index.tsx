@@ -22,7 +22,7 @@ export default function Home() {
             <Layout>
                 <Navbar />
 
-                <ProtectedRoute redirect=''>
+                <ProtectedRoute redirect='login'>
                     {
                         apiLoading ? 
                             <FetchLoader message={message} /> :

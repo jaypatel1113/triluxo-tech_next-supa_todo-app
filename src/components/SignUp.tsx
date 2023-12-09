@@ -39,14 +39,14 @@ const SignUpComponent: React.FC = (): React.ReactNode => {
                     height={1000}
                     className={`w-[150px] h-[150px] object-cover rounded-full pointer-events-none`}
                 />
-                <div className="uppercase text-2xl segeo font-bold tracking-wide">TODO APP</div>
+                <div className="uppercase text-2xl font-bold tracking-wide">TODO APP</div>
             </div>
 
             <div className="flex flex-col min-w-[300px] gap-3">
                 <input
                     type="email"
                     placeholder="Email"
-                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] segeo tracking-wide font-medium"
+                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] tracking-wide font-medium"
                     value={credentials.email}
                     onChange={(e) => updateCredentials("email", e.target.value)}
                     onKeyUp={handleKeyPress}
@@ -54,18 +54,18 @@ const SignUpComponent: React.FC = (): React.ReactNode => {
                 <input
                     type="password"
                     placeholder="Password"
-                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] segeo tracking-wide font-medium"
+                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] tracking-wide font-medium"
                     value={credentials.password}
                     onChange={(e) => updateCredentials("password", e.target.value)}
                     onKeyUp={handleKeyPress}
                     ref={inpRef}
                 />
                 {error && (
-                    <p className="text-xs segeo font-semibold tracking-wide text-red-500 text-center">
+                    <p className="text-xs font-semibold tracking-wide text-red-500 text-center">
                         {error}
                     </p>
                 )}
-                {/* <Link href={"/login"} className="text-xs segeo font-semibold tracking-wide text-center mt-3">
+                {/* <Link href={"/login"} className="text-xs font-semibold tracking-wide text-center mt-3">
                     already have account?
                 </Link> */}
             </div>

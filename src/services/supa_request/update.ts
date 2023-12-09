@@ -16,7 +16,7 @@ export const update_data = async <T extends { id: string }>(new_data: T, db: dat
             .eq('id', new_data.id);
 
         if (error) {
-            // console.log(error);
+            console.log(error);
             return new CustomError({ message: `Error updating data (${db})` });
         } else {
             return { message: "Data updated" };

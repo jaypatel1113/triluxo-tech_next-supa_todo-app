@@ -9,9 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return catchAsyncError(async () => {
         const { todo } = req.body as { todo: TodoType };
 
-        console.log(req.body);
-        
-
         const data = await insert_data<TodoType>(todo, "todo-list");
 
         if (data instanceof CustomError) {
