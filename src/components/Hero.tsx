@@ -2,27 +2,15 @@ import { Data } from "~/constants";
 import {FaEdit} from 'react-icons/fa';
 import {TbLogout2} from 'react-icons/tb';
 import {MdDelete, MdOutlineAdd} from 'react-icons/md';
-import { useEffect } from "react";
 import { useAuth } from "~/hooks/useAuth";
 import Layout from "~/layout";
 import { useLoginStore } from "~/store/login";
 
 
 const Hero = () => {
-    const { logout, checkAuth } = useAuth();
+    const { logout } = useAuth();
     const { setApiLoading, setMessage } = useLoginStore();
 
-    const checkUser = async () => {
-        const isAuthenticated = await checkAuth();
-
-        if (!isAuthenticated) {
-
-        } else {
-
-        }
-    };
-
-    
     const handleLogout = async () => {
         setMessage("Logging out");
         setApiLoading(true);
@@ -30,13 +18,6 @@ const Hero = () => {
         setMessage("");
         setApiLoading(false);
     }
-
-
-    useEffect(() => {
-        void checkUser();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
 
     return (
         <Layout>
