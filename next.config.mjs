@@ -13,12 +13,18 @@ const config = {
         defaultLocale: "en",
     },
 
-    typescript: {
-        ignoreBuildErrors: true,
+    images: {
+        domains: [
+            "gmrguksafuopppgoodxy.supabase.co"
+        ],
     },
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
+
+    // typescript: {
+    //     ignoreBuildErrors: true,
+    // },
+    // eslint: {
+    //     ignoreDuringBuilds: true,
+    // },
 
     swcMinify: true,
 };

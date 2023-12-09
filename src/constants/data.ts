@@ -2,12 +2,14 @@
 export const Data = [
     {
         id: 1,
-        title: "Title 1",
-        description: "Description 1",
+        todo: "Title 1",
+        created_at: "yesterday",
+        user_id: "",
     },
     {
         id: 2,
-        title: "Title 2",
-        description: "Description 2",
+        todo: "Title 2",
+        created_at: "today",
+        user_id: "",
     }
 ];

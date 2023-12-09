@@ -13,6 +13,12 @@ export const scaleX = {
     whileTap: { scaleX: 0.95 },
 };
 
+export const scaleVariant = {
+    initial: { scale: 0 },
+    whileInView: { scale: 1 },
+    exit: {scale: 0}
+}
+
 export const smallScaleX = {
     whileHover: { scaleX: 1.025 },
     whileTap: { scaleX: 0.925 },

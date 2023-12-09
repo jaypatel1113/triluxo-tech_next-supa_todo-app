@@ -5,8 +5,14 @@ import Hero from "~/components/Hero";
 import Navbar from "~/components/Navbar";
 import Loader from "~/components/Loader";
 import { getStaticProps } from "~/utils";
+import ProtectedRoute from "~/components/ProtectedRoute";
+import TodoList from "~/components/TodoList";
+import { useLoginStore } from "~/store/login";
+import FetchLoader from "~/components/loaders/FetchLoader";
 
 export default function Home() {
+    const {message, apiLoading} = useLoginStore();
+
     return (
         <>
             <Head>
@@ -18,10 +24,13 @@ export default function Home() {
             <Layout>
                 <Navbar />
 
-                <section className="relative flex justify-start items-center w-full min-h-screen flex-col py-[35px] md:py-[70px] font-thunder">
-                    {/* <Loader />      remove this and add to actual place */}
-                    <Hero />
-                </section>
+                <ProtectedRoute redirect=''>
+                    {
+                        apiLoading ? 
+                            <FetchLoader message={message} /> :
+                            <TodoList />
+                    }
+                </ProtectedRoute>
             </Layout>
         </>
     );
