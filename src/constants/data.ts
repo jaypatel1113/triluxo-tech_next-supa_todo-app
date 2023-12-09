@@ -1,4 +1,4 @@
-import { TodoType } from "~/types";
+import type { TodoType } from "~/types";
 
 // create and import appropriate types 
 export const Data: TodoType[] = [

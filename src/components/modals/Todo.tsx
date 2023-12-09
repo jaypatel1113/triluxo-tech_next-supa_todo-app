@@ -4,7 +4,7 @@ import { useLoginStore } from "~/store/login";
 import { insert_data } from "~/services/api_requests/insert";
 import { update_data } from "~/services/api_requests/update";
 import { useTodoStore } from "~/store/app";
-import { TodoType } from "~/types";
+import type { TodoType } from "~/types";
 import { useModalStore } from "~/store/modal";
 import { getData } from "~/services/api_requests/get";
 
@@ -13,7 +13,7 @@ const TodoModal: React.FC = () => {
 
     const { isEdit, selected_todo, setTodos } = useTodoStore();
     const { user, setMessage, setApiLoading } = useLoginStore();
-    const { modal, setModal } = useModalStore();
+    const { setModal } = useModalStore();
     
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const TodoModal: React.FC = () => {
         setApiLoading(false)
         setModal(null);
 
-        handleGet();
+        void handleGet();
     }
 
     const handleUpdate = async () => {
@@ -56,7 +56,7 @@ const TodoModal: React.FC = () => {
         setApiLoading(false);
         setModal(null);
 
-        handleGet();
+        void handleGet();
     }
 
     const handleGet = async () => {

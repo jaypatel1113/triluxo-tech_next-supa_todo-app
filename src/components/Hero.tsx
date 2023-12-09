@@ -1,11 +1,10 @@
-import { Data } from "~/constants";
 import {FaEdit} from 'react-icons/fa';
 import {TbLogout2} from 'react-icons/tb';
 import {MdDelete, MdOutlineAdd} from 'react-icons/md';
 import { useAuth } from "~/hooks/useAuth";
 import Layout from "~/layout";
 import { useLoginStore } from "~/store/login";
-import { TodoType } from "~/types";
+import type { TodoType } from "~/types";
 import { delete_data } from "~/services/api_requests/delete";
 import { useModalStore } from "~/store/modal";
 import { useTodoStore } from "~/store/app";
@@ -41,7 +40,7 @@ const Hero = () => {
         setApiLoading(false);
         setMessage("");
 
-        handleGet();
+        void handleGet();
     }
 
     const handleEdit = (todo: TodoType) => {
@@ -77,7 +76,7 @@ const Hero = () => {
         }
 
         void fetch_data()
-    }, []);
+    }, [setTodos]);
 
     return (
         <Layout>

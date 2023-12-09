@@ -4,7 +4,7 @@ import { CustomError } from "~/middlewares/custom_error";
 import { catchAsyncError } from "~/middlewares/catch_async";
 
 import type { TodoType } from "~/types/index";
-import { CustomErrorType } from "~/types/custom_error";
+import type { CustomErrorType } from "~/types/custom_error";
 
 type DataTypeMap = {
     "todo-list": TodoType;

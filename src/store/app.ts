@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TodoType } from "~/types";
+import type { TodoType } from "~/types";
 
 interface TodoStore {
     loaded: boolean;

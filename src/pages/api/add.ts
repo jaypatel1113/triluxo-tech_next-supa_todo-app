@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { TodoType } from "~/types";
+import type { TodoType } from "~/types";
 
 import { catchAsyncError } from "~/middlewares/catch_async";
 import { CustomError } from "~/middlewares/custom_error";

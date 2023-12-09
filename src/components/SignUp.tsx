@@ -1,13 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { useRef, useState } from "react";
-import { AiOutlineEnter } from "react-icons/ai";
-import { IoMdLogIn } from "react-icons/io";
 
 import { useAuth } from "~/hooks/useAuth";
 
 const SignUpComponent: React.FC = (): React.ReactNode => {
-    const { signup, error } = useAuth();
+    const { error } = useAuth();
 
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     const inpRef = useRef<HTMLInputElement | null>(null);
@@ -19,7 +16,7 @@ const SignUpComponent: React.FC = (): React.ReactNode => {
         }));
     };
 
-    const handleSignUp = () => void signup(credentials.email, credentials.password);
+    // const handleSignUp = () => void signup(credentials.email, credentials.password);
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {

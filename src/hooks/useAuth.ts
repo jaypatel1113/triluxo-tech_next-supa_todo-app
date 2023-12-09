@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 import { supabase } from "~/supabase";
 import { useLoginStore } from "~/store/login";
-import { User } from "@supabase/supabase-js";
 
 const useAuth = () => {
     const router = useRouter();

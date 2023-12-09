@@ -4,7 +4,6 @@ import { IoMdLogIn } from "react-icons/io";
 import { AiOutlineEnter } from "react-icons/ai";
 
 import { useAuth } from "~/hooks/useAuth";
-import Link from "next/link";
 
 const LoginComponent: React.FC = (): React.ReactNode => {
     const { login, error } = useAuth();
