@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+
 import type { Asset, AssetType } from "~/types";
 
 function getFilesRecursively(folderPath: string): string[] {
@@ -42,9 +43,11 @@ export function getAssets(): Asset[] {
         }
 
         return {
-            url: `/${path.relative(publicFolder, filePath)}`.replace(/\\/g, "/"), // Replace backslashes with forward slashes
-            type: assetType,
-            name: name,
+            
+name: name, 
+            // Replace backslashes with forward slashes
+type: assetType,
+            url: `/${path.relative(publicFolder, filePath)}`.replace(/\\/g, "/"),
         };
     });
 

@@ -1,7 +1,8 @@
-import Hero from "./Hero";
 import AuthLoader from "./loaders/AuthLoader";
-import { useLoginStore } from "~/store/login";
+import Hero from "./Hero";
 import Modals from "./modals";
+
+import { useLoginStore } from "~/store/login";
 
 const TodoList: React.FC = (): React.ReactNode => {
     const { user } = useLoginStore();

@@ -1,7 +1,8 @@
 import axios, { type AxiosError } from "axios";
 
-import type { CustomErrorType } from "~/types/custom_error";
 import { CustomError } from "../../middlewares/custom_error";
+
+import type { CustomErrorType } from "~/types/custom_error";
 
 const axiosInstance = axios.create({
     baseURL: "/api",

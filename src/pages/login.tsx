@@ -1,5 +1,5 @@
-import ProtectedRoute from '~/components/ProtectedRoute';
 import LoginComponent from '~/components/Login';
+import ProtectedRoute from '~/components/ProtectedRoute';
 
 const Login = () => {
     return (

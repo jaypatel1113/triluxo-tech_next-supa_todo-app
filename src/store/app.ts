@@ -1,4 +1,5 @@
 import { create } from "zustand";
+
 import type { TodoType } from "~/types";
 
 interface TodoStore {
@@ -16,15 +17,15 @@ interface TodoStore {
 }
 
 export const useTodoStore = create<TodoStore>()((set) => ({
-    loaded: false,
-    setLoaded: (value: boolean) => set(() => ({ loaded: value })),
-
     isEdit: false,
+    loaded: false,
+
+    selected_todo: null,
     setIsEdit: (val: TodoStore["isEdit"]) => set(() => ({ isEdit: val })),
     
-    selected_todo: null,
+    setLoaded: (value: boolean) => set(() => ({ loaded: value })),
     setSelectedTodo: (val: TodoStore["selected_todo"]) => set(() => ({ selected_todo: val })),
     
-    todos: null,
     setTodos: (val: TodoStore["todos"]) => set(() => ({ todos: val })),
+    todos: null,
 }));

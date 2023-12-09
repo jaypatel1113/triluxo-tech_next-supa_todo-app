@@ -1,9 +1,9 @@
-import { supabase } from "~/supabase";
 import { catchAsyncError } from "../../middlewares/catch_async";
 import { CustomError } from "../../middlewares/custom_error";
 
+import { supabase } from "~/supabase";
 import type { CustomErrorType } from "~/types/custom_error";
-import type { UpdateType, databaseName } from "~/types/services/supa_request";
+import type { databaseName,UpdateType } from "~/types/services/supa_request";
 
 
 export const update_data = async <T extends { id: string }>(new_data: T, db: databaseName): Promise<UpdateType | CustomErrorType> => {

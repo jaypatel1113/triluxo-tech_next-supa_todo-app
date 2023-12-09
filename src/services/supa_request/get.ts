@@ -1,10 +1,8 @@
-import { supabase } from "~/supabase";
-
-import { CustomError } from "~/middlewares/custom_error";
 import { catchAsyncError } from "~/middlewares/catch_async";
-
-import type { TodoType } from "~/types/index";
+import { CustomError } from "~/middlewares/custom_error";
+import { supabase } from "~/supabase";
 import type { CustomErrorType } from "~/types/custom_error";
+import type { TodoType } from "~/types/index";
 
 type DataTypeMap = {
     "todo-list": TodoType;

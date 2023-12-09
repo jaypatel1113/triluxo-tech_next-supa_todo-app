@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import { supabase } from "~/supabase";
 import { useLoginStore } from "~/store/login";
+import { supabase } from "~/supabase";
 
 const useAuth = () => {
     const router = useRouter();
@@ -104,12 +104,12 @@ const useAuth = () => {
     };
 
     return {
-        loading,
-        error,
-        login,
-        signup,
-        logout,
         checkAuth,
+        error,
+        loading,
+        login,
+        logout,
+        signup,
     };
 };
 

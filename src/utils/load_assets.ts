@@ -1,6 +1,7 @@
 // loadAssets.js
 
 import type { Dispatch, SetStateAction } from "react";
+
 import type { Asset } from "~/types";
 
 export const loadAssets = (assets: Asset[], setLoadingPercentage: Dispatch<SetStateAction<number>>, signal: AbortSignal, setLoaded: (value: boolean) => void) => {
@@ -22,9 +23,9 @@ export const loadAssets = (assets: Asset[], setLoadingPercentage: Dispatch<SetSt
 
     assets.forEach((asset) => {
         const fetchOptions: RequestInit = {
+            cache: "default" as RequestCache,
             method: "GET",
             mode: "cors",
-            cache: "default" as RequestCache,
             signal,
         };
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { useLoginStore } from "~/store/login";
+import { getData } from "~/services/api_requests/get";
 import { insert_data } from "~/services/api_requests/insert";
 import { update_data } from "~/services/api_requests/update";
 import { useTodoStore } from "~/store/app";
-import type { TodoType } from "~/types";
+import { useLoginStore } from "~/store/login";
 import { useModalStore } from "~/store/modal";
-import { getData } from "~/services/api_requests/get";
+import type { TodoType } from "~/types";
 
 const TodoModal: React.FC = () => {
     const [task, setTask] = useState<string>("");
@@ -47,7 +47,7 @@ const TodoModal: React.FC = () => {
         if(!user?.id) return;
         if(!selected_todo) return;
 
-        const object = { task, user_id: user.id, id: selected_todo.id };
+        const object = { id: selected_todo.id, task, user_id: user.id };
         const final_data = {...object} as TodoType;
     
         setMessage("Updating todo");

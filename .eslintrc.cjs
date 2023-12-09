@@ -4,7 +4,7 @@ const config = {
     parserOptions: {
         project: true,
     },
-    plugins: ["@typescript-eslint"],
+    plugins: ["@typescript-eslint", "simple-import-sort", "sort-keys-fix"],
     extends: [
         "next/core-web-vitals",
         "plugin:@typescript-eslint/recommended-type-checked",
@@ -33,7 +33,45 @@ const config = {
                 checksVoidReturn: { attributes: false },
             },
         ],
+        
+        // simple sorting
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
     },
+    overrides: [
+        {
+            files: ["*.ts", "*.tsx"],
+            rules: {
+                "simple-import-sort/imports": [
+                    "error",
+                    {
+                        groups: [
+                            // Packages `react` related packages come first.
+                            ["^react", "^@?\\w"],
+                            // Internal packages.
+                            ["^(@|components)(/.*|$)"],
+                            // Side effect imports.
+                            ["^\\u0000"],
+                            // Parent imports. Put `..` last.
+                            ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                            // Other relative imports. Put same-folder imports and `.` last.
+                            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                            // Style imports.
+                            ["^.+\\.?(css)$"],
+                        ],
+                    },
+                ],
+                "sort-keys-fix/sort-keys-fix": "warn",
+                "sort-keys": ["error", "asc", { caseSensitive: true, natural: false, minKeys: 2 }],
+            },
+        },
+        {
+            files: ["next.config.js", "env.js"],
+            rules: {
+                "sort-keys": "off",
+            },
+        },
+    ],
 };
 
 module.exports = config;

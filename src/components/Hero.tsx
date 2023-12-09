@@ -1,16 +1,18 @@
+import { useEffect, useState } from "react";
 import {FaEdit} from 'react-icons/fa';
-import {TbLogout2} from 'react-icons/tb';
 import {MdDelete, MdOutlineAdd} from 'react-icons/md';
+import {TbLogout2} from 'react-icons/tb';
+
+import FetchLoader from "./loaders/FetchLoader";
+
 import { useAuth } from "~/hooks/useAuth";
 import Layout from "~/layout";
-import { useLoginStore } from "~/store/login";
-import type { TodoType } from "~/types";
 import { delete_data } from "~/services/api_requests/delete";
-import { useModalStore } from "~/store/modal";
-import { useTodoStore } from "~/store/app";
-import { useEffect, useState } from "react";
 import { getData } from "~/services/api_requests/get";
-import FetchLoader from "./loaders/FetchLoader";
+import { useTodoStore } from "~/store/app";
+import { useLoginStore } from "~/store/login";
+import { useModalStore } from "~/store/modal";
+import type { TodoType } from "~/types";
 
 const Hero = () => {
     const { setTodos } = useTodoStore();

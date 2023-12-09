@@ -1,6 +1,5 @@
-import { create } from "zustand";
-
 import type { User as SupabaseUser } from "@supabase/supabase-js";
+import { create } from "zustand";
 
 interface LoginStore {
     user: SupabaseUser | null;
@@ -13,11 +12,11 @@ interface LoginStore {
 }
 
 export const useLoginStore = create<LoginStore>()((set) => ({
-    user: null,
-    setUser: (val: LoginStore["user"]) => set(() => ({ user: val })),
-    
     apiLoading: false,
-    setApiLoading: (val: LoginStore["apiLoading"]) => set(() => ({ apiLoading: val })),
     message: "",
+    
+    setApiLoading: (val: LoginStore["apiLoading"]) => set(() => ({ apiLoading: val })),
     setMessage: (val: LoginStore["message"]) => set(() => ({ message: val })),
+    setUser: (val: LoginStore["user"]) => set(() => ({ user: val })),
+    user: null,
 }));

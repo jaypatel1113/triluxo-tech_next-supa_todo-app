@@ -1,6 +1,7 @@
 // pages/api/assets.js
 
 import type { NextApiRequest, NextApiResponse } from 'next';
+
 import type { ApiAssetResponse } from '~/types';
 import { getAssets } from '~/utils';
 

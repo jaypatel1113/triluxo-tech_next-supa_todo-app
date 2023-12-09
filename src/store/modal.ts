@@ -13,8 +13,8 @@ interface ModalStore {
 
 export const useModalStore = create<ModalStore>()((set) => ({
     modal: {
-        state: null,
         payload: "",
+        state: null,
     },
-    setModal: (m_state: AdminModalStates, payload?: string) => set(() => ({ modal: { state: m_state, payload: payload ?? ""  } })),
+    setModal: (m_state: AdminModalStates, payload?: string) => set(() => ({ modal: { payload: payload ?? "", state: m_state  } })),
 }));

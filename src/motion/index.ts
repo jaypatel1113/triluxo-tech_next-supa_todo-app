@@ -14,9 +14,9 @@ export const scaleX = {
 };
 
 export const scaleVariant = {
+    exit: {scale: 0},
     initial: { scale: 0 },
-    whileInView: { scale: 1 },
-    exit: {scale: 0}
+    whileInView: { scale: 1 }
 }
 
 export const smallScaleX = {

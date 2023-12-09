@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { useTodoStore } from "~/store/app";
-import { loadAssets } from "~/utils";
 import type { ApiAssetResponse, Asset } from "~/types";
+import { loadAssets } from "~/utils";
 
 export const useLoaderLogic = () => {
     const [loadingPercentage, setLoadingPercentage] = useState<number>(0);

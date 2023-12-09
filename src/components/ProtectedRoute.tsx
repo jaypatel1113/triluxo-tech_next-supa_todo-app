@@ -1,11 +1,12 @@
-import Image from 'next/image';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-import { useLoginStore } from '~/store/login';
-import { useAuth } from '~/hooks/useAuth';
 import AuthLoader from './loaders/AuthLoader';
+
+import { useAuth } from '~/hooks/useAuth';
+import { useLoginStore } from '~/store/login';
 
 const ProtectedRoute = ({children, redirect}: {children: React.ReactNode, redirect: string}) => {
     const { loading, checkAuth } = useAuth();
