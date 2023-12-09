@@ -1,9 +1,9 @@
 import { useLoaderLogic } from "~/hooks/useLoaderLogic";
-import { useAppStore } from "~/store/app";
+import { useTodoStore } from "~/store/app";
 
 const Loader: React.FC = (): React.ReactNode => {
     const { loadingPercentage } = useLoaderLogic();
-    const { loaded } = useAppStore();
+    const { loaded } = useTodoStore();
     
     return (
         <section>

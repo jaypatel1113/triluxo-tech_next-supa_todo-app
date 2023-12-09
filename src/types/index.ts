@@ -14,6 +14,12 @@ export type AnimateProps = {
     className?: string,
 }
 
+export type TodoType = {
+    id: string;
+    created_at: string;
+    user_id: string;
+    task: string;
+}
 
 
 // for loading all assets

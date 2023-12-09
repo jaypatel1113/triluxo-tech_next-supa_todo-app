@@ -5,11 +5,21 @@ import {MdDelete, MdOutlineAdd} from 'react-icons/md';
 import { useAuth } from "~/hooks/useAuth";
 import Layout from "~/layout";
 import { useLoginStore } from "~/store/login";
-
+import { TodoType } from "~/types";
+import { delete_data } from "~/services/api_requests/delete";
+import { useModalStore } from "~/store/modal";
+import { useTodoStore } from "~/store/app";
+import { getData } from "~/services/api_requests/get";
+import { useEffect } from "react";
+import useTodoCRUD from "~/hooks/useTodoCrud";
 
 const Hero = () => {
+    const { setTodos } = useTodoStore();
+
     const { logout } = useAuth();
-    const { setApiLoading, setMessage } = useLoginStore();
+    const { setApiLoading, setMessage, handleGet, handleDelete } = useTodoCRUD();
+    const { setModal } = useModalStore();
+    const { setIsEdit, setSelectedTodo, todos } = useTodoStore();
 
     const handleLogout = async () => {
         setMessage("Logging out");
@@ -19,52 +29,79 @@ const Hero = () => {
         setApiLoading(false);
     }
 
+    const handleDeleteTodo = async (company: TodoType) => {
+        await handleDelete(company);
+        await handleGet();
+    }
+
+    const handleEdit = (todo: TodoType) => {
+        setModal("TODO");
+        setIsEdit(true);
+        setSelectedTodo(todo);
+    }
+    
+    const handleOpenModal = () => {
+        setModal("TODO");
+        setIsEdit(false);
+        setSelectedTodo(null);
+    }
+
+    useEffect(() => {
+        handleGet()
+    }, []);
+
+
     return (
         <Layout>
             <div className="grid gap-3 grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-flow-col w-full ">
-                {Data.map(data => (
-                    <div className="relative bg-[#222]/70 p-5 rounded-lg group font-sans ">
-                        {data.todo}
-
-
-                        <div className="lg:absolute left-0 top-0 w-full h-full bg-transparent lg:bg-black/40 lg:opacity-0 group-hover:opacity-100 transition-all duration-150 rounded-lg">
-                            <div className="w-full h-full flex justify-end lg:justify-center items-center gap-3 lg:gap-5  ">
-                                <button 
-                                    className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#BEC045] bg-[#44421B] rounded-full text-xs"
-                                    // onClick={() => handleEdit(detail)}
-                                >
-                                    <div>
-                                        <FaEdit />
-                                    </div>
-                                    <div className="font-semibold tracking-wider hidden lg:block">
-                                        Edit
-                                    </div>
-                                </button>
-                                <button 
-                                    className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#dc3545] bg-[#461419] rounded-full text-xs disabled:cursor-not-allowed disabled:opacity-40"
-                                    // onClick={() => void handleDelete(detail)}
-                                    // disabled={isDisabled}
-                                >
-                                    <div>
-                                        <MdDelete />
-                                    </div>
-                                    <div className="font-semibold tracking-wider hidden lg:block">
-                                        Delete
-                                    </div>
-                                </button>
+                {todos && todos.length > 0 ? (
+                    todos.map((data) => (
+                        <div
+                            className="relative bg-[#222]/70 p-5 rounded-lg group font-sans"
+                            key={data.id}
+                        >
+                            {data.task}
+                            <div className="lg:absolute left-0 top-0 w-full h-full bg-transparent lg:bg-black/40 lg:opacity-0 group-hover:opacity-100 transition-all duration-150 rounded-lg">
+                                <div className="w-full h-full flex justify-end lg:justify-center items-center gap-3 lg:gap-5">
+                                    <button
+                                        className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#BEC045] bg-[#44421B] rounded-full text-xs"
+                                        onClick={() => handleEdit(data)}
+                                    >
+                                        <div>
+                                            <FaEdit />
+                                        </div>
+                                        <div className="font-semibold tracking-wider hidden lg:block">
+                                            Edit
+                                        </div>
+                                    </button>
+                                    <button
+                                        className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#dc3545] bg-[#461419] rounded-full text-xs disabled:cursor-not-allowed disabled:opacity-40"
+                                        onClick={() => void handleDeleteTodo(data)}
+                                        // disabled={isDisabled}
+                                    >
+                                        <div>
+                                            <MdDelete />
+                                        </div>
+                                        <div className="font-semibold tracking-wider hidden lg:block">
+                                            Delete
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                    <div className="font-sans tracking-wide ">no todo found</div>
+                )}
 
-                <div 
-                    className="fixed bottom-20 md:bottom-5 left-10 bg-[#1B4437] text-[#45C077] cursor-pointer rounded-md p-3 text-2xl" 
-                    // onClick={handleOpenModal}
+                <div
+                    className="fixed bottom-20 md:bottom-5 left-10 bg-[#1B4437] text-[#45C077] cursor-pointer rounded-md p-3 text-2xl"
+                    onClick={handleOpenModal}
                 >
                     <MdOutlineAdd />
                 </div>
 
-                <button 
+                <button
                     className="fixed bottom-20 md:bottom-5 right-10 bg-[#222]/[0.75] text-white/80 rounded-md p-3 text-2xl h-[50px]"
                     onClick={() => void handleLogout()}
                 >

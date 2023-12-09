@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { useAppStore } from "~/store/app";
+import { useTodoStore } from "~/store/app";
 import { loadAssets } from "~/utils";
 import type { ApiAssetResponse, Asset } from "~/types";
 
 export const useLoaderLogic = () => {
     const [loadingPercentage, setLoadingPercentage] = useState<number>(0);
-    const { setLoaded } = useAppStore();
+    const { setLoaded } = useTodoStore();
 
     useEffect(() => {
         const abortController = new AbortController();

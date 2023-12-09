@@ -1,14 +1,12 @@
 import Head from "next/head";
 
 import Layout from "~/layout";
-import Hero from "~/components/Hero";
 import Navbar from "~/components/Navbar";
-import Loader from "~/components/Loader";
 import { getStaticProps } from "~/utils";
 import ProtectedRoute from "~/components/ProtectedRoute";
 import TodoList from "~/components/TodoList";
-import { useLoginStore } from "~/store/login";
 import FetchLoader from "~/components/loaders/FetchLoader";
+import { useLoginStore } from "~/store/login";
 
 export default function Home() {
     const {message, apiLoading} = useLoginStore();
