@@ -3,7 +3,6 @@ import Head from "next/head";
 import Layout from "~/layout";
 import Hero from "~/components/Hero";
 import Navbar from "~/components/Navbar";
-import About from "~/components/About";
 import Loader from "~/components/Loader";
 import { getStaticProps } from "~/utils";
 
@@ -19,22 +18,10 @@ export default function Home() {
             <Layout>
                 <Navbar />
 
-                <section className="relative flex justify-center items-center w-full min-h-screen flex-col py-[35px] md:py-[54px] font-thunder">
-                    <Loader />      {/* remove this and add to actual place */}
+                <section className="relative flex justify-start items-center w-full min-h-screen flex-col py-[35px] md:py-[70px] font-thunder">
+                    {/* <Loader />      remove this and add to actual place */}
                     <Hero />
                 </section>
-
-                <About />
-
-                {/*
-                
-                <Section2 />
-                <Section3 />
-                ...
-                <Footer /> 
-                
-                */}
-                
             </Layout>
         </>
     );
