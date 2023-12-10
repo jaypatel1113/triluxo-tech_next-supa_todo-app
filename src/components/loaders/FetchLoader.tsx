@@ -12,14 +12,14 @@ const FetchLoader: React.FC<LoaderType> = ({message}) => {
             exit={{opacity: 0}}
         >
             <div  className='flex w-full justify-center items-center h-full gap-5 '>
-                <div className='text-3xl uppercase font-semibold tracking-widest font-thunder translate-y-1'>
+                <div className='text-3xl uppercase font-semibold tracking-widest font-thunder translate-y-1 text-black'>
                     {message} 
                 </div>
                 <Ring 
                     size={30}
                     lineWeight={5}
                     speed={1} 
-                    color="white" 
+                    color="black" 
                 />
             </div>
         </motion.div>

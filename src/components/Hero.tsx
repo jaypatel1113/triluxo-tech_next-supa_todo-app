@@ -90,14 +90,16 @@ const Hero = () => {
                     {todos && todos.length > 0 ? (
                         todos.map((data) => (
                             <div
-                                className="relative bg-[#222]/70 p-5 rounded-lg group font-sans"
+                                className="relative bg-[#ddd]/40 p-5 rounded-lg group font-sans"
                                 key={data.id}
                             >
-                                {data.task}
-                                <div className="lg:absolute left-0 top-0 w-full h-full bg-transparent lg:bg-black/40 lg:opacity-0 group-hover:opacity-100 transition-all duration-150 rounded-lg">
+                                <div className="font-mono font-bold tracking-wide text-lg">
+                                    {data.task}
+                                </div>
+                                <div className="lg:absolute left-0 top-0 w-full h-full bg-transparent lg:bg-black/20 lg:opacity-0 group-hover:opacity-100 transition-all duration-150 rounded-lg">
                                     <div className="w-full h-full flex justify-end lg:justify-center items-center gap-3 lg:gap-5">
                                         <button
-                                            className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#BEC045] bg-[#44421B] rounded-full text-xs"
+                                            className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#797a31] bg-[#efeba9] rounded-full text-xs"
                                             onClick={() => handleEdit(data)}
                                         >
                                             <div>
@@ -108,7 +110,7 @@ const Hero = () => {
                                             </div>
                                         </button>
                                         <button
-                                            className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#dc3545] bg-[#461419] rounded-full text-xs disabled:cursor-not-allowed disabled:opacity-40"
+                                            className="p-2 lg:px-3 lg:py-1 flex gap-1 items-center cursor-pointer text-[#ff3045] bg-[#f6abb0] rounded-full text-xs disabled:cursor-not-allowed disabled:opacity-40"
                                             onClick={() => void handleDelete(data)}
                                             // disabled={isDisabled}
                                         >
@@ -128,7 +130,7 @@ const Hero = () => {
                     )}
 
                     <div
-                        className="fixed bottom-20 md:bottom-5 left-10 bg-[#1B4437] text-[#45C077] cursor-pointer rounded-md p-3 text-2xl"
+                        className="fixed bottom-20 md:bottom-5 left-10 text-[#45C077] bg-[#89f1d04f]  cursor-pointer rounded-md p-3 text-2xl"
                         onClick={handleOpenModal}
                     >
                         <MdOutlineAdd />

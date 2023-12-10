@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useClickOutside from "~/hooks/useClickOutside";
 
 import { getData } from "~/services/api_requests/get";
 import { insert_data } from "~/services/api_requests/insert";
@@ -15,6 +16,7 @@ const TodoModal: React.FC = () => {
     const { user, setMessage, setApiLoading } = useLoginStore();
     const { setModal } = useModalStore();
     
+    const modalRef = useClickOutside(() => setModal(null));
 
     useEffect(() => {
         if(selected_todo) {
@@ -75,8 +77,11 @@ const TodoModal: React.FC = () => {
     };
 
     return (
-        <div className="fixed top-0 left-0 w-full h-screen z-[5] bg-black/80 flex justify-center items-center font-sans">
-            <div className="font-medium tracking-wider mx-3 w-full max-w-[300px] p-6 rounded-md bg-[#191919] grid grid-cols-2 gap-3">
+        <div className="fixed top-0 left-0 w-full h-screen z-[5] bg-black/40 flex justify-center items-center font-sans">
+            <div 
+                className="font-medium tracking-wider mx-3 w-full max-w-[300px] p-6 rounded-md bg-[#191919] invert grid grid-cols-2 gap-3"
+                ref={modalRef}
+            >
 
                 {/* Type */}
                 <div className="flex flex-col gap-1 text-sm text-white/60 col-span-2">
@@ -86,12 +91,12 @@ const TodoModal: React.FC = () => {
                         value={task ?? ""}
                         onChange={(e) => setTask(e.target.value)}
                         placeholder="enter task"
-                        className="bg-black/20 outline-none border-none px-3 py-1 text-xs font-semibold tracking-wider"
+                        className="bg-black/80 outline-none border-none px-3 py-1 text-xs font-semibold tracking-wider"
                     />
                 </div>
 
                 <button 
-                    className="justify-self-start mt-8 text-[#ff3045] bg-[#40181c] px-6 py-2 rounded-full text-sm uppercase font-bold tracking-widest" 
+                    className="justify-self-start mt-8 text-[#ff3045] bg-[#f6abb0] px-6 py-2 rounded-full text-sm uppercase font-bold tracking-widest invert" 
                     onClick={() =>  setModal(null)}
                 >
                     Close
@@ -100,13 +105,13 @@ const TodoModal: React.FC = () => {
                 {
                     isEdit ? 
                         <button 
-                            className="justify-self-end mt-8 text-[#BEC045] bg-[#44421B] px-6 py-2 rounded-full text-sm uppercase font-bold tracking-widest disabled:cursor-not-allowed disabled:opacity-40" 
+                            className="justify-self-end mt-8 text-[#797a31] bg-[#efeba9] px-6 py-2 rounded-full text-sm uppercase font-bold tracking-widest disabled:cursor-not-allowed disabled:opacity-40 invert" 
                             onClick={() => void handleUpdate()}
                         >
                             Update
                         </button> :
                         <button 
-                            className="justify-self-end mt-8 text-[#45C077] bg-[#1B4437] px-6 py-2 rounded-full text-sm uppercase font-bold tracking-widest disabled:cursor-not-allowed disabled:opacity-40" 
+                            className="justify-self-end mt-8 text-[#45C077] bg-[#97e6cd] px-6 py-2 rounded-full text-sm uppercase font-bold tracking-widest disabled:cursor-not-allowed disabled:opacity-40 invert" 
                             onClick={() => void handleAdd()}
                         >
                             Add

@@ -26,7 +26,10 @@ const LoginComponent: React.FC = (): React.ReactNode => {
         if(inpRef.current) inpRef.current.focus();
     }
 
-    const handleLogin = () => void login(credentials.email, credentials.password);
+    const handleLogin = async () => {
+        
+        await login(credentials.email, credentials.password);
+    }
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
@@ -53,7 +56,7 @@ const LoginComponent: React.FC = (): React.ReactNode => {
                 <input
                     type="email"
                     placeholder="Email"
-                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] tracking-wide font-medium"
+                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] tracking-wide font-medium placeholder:text-white/50"
                     value={credentials.email}
                     onChange={(e) => updateCredentials("email", e.target.value)}
                     onKeyUp={handleKeyPress}
@@ -61,7 +64,7 @@ const LoginComponent: React.FC = (): React.ReactNode => {
                 <input
                     type="password"
                     placeholder="Password"
-                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] tracking-wide font-medium"
+                    className="px-2 py-1 rounded-md bg-white/10 text-sm backdrop-blur-sm outline-none border-b-2 border-[#60cdff] tracking-wide font-medium placeholder:text-white/50"
                     value={credentials.password}
                     onChange={(e) => updateCredentials("password", e.target.value)}
                     onKeyUp={handleKeyPress}
@@ -84,10 +87,10 @@ const LoginComponent: React.FC = (): React.ReactNode => {
                     onClick={handleLoginClick}
                 >
                     <div className="absolute bottom-[120%] left-1/2 -translate-x-1/2 h-auto min-w-max opacity-0 group-hover:opacity-100 -translate-y-3 group-hover:translate-y-0 transition-all duration-200 ">
-                        <div className="flex gap-1 items-center text-xs font-semibold text-white tracking-wider px-2 py-1 bg-[#1b54cd] rounded-sm">
+                        <div className="flex gap-1 items-center text-xs font-semibold text-white tracking-wider px-2 py-1 bg-[#bbaae2] rounded-sm">
                             Click & hit <AiOutlineEnter className="stroke-[1]" />
                         </div>
-                        <div className="w-0 h-0 border-[6px] border-r-transparent border-l-transparent border-b-transparent absolute top-full left-1/2 -translate-x-1/2 border-t-[#1b54cd] " />
+                        <div className="w-0 h-0 border-[6px] border-r-transparent border-l-transparent border-b-transparent absolute top-full left-1/2 -translate-x-1/2 border-t-[#bbaae2] " />
                     </div>
                     <div className='font-bold text-2xl tracking-wider'>
                         <IoMdLogIn />

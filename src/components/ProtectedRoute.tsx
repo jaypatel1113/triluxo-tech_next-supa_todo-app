@@ -11,6 +11,7 @@ import { useLoginStore } from '~/store/login';
 const ProtectedRoute = ({children, redirect}: {children: React.ReactNode, redirect: string}) => {
     const { loading, checkAuth } = useAuth();
     const { user } = useLoginStore();
+    const {message, apiLoading} = useLoginStore();
 
     const router = useRouter();
 
@@ -35,7 +36,7 @@ const ProtectedRoute = ({children, redirect}: {children: React.ReactNode, redire
                 {loading && !user && <AuthLoader />}
             </AnimatePresence>
             <Image 
-                src={`/backgrounds/dark.png`}
+                src={`/backgrounds/bg.jpg`}
                 alt="wallpaper"
                 width={1000}
                 height={1000}

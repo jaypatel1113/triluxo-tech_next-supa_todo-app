@@ -8,14 +8,14 @@ const AuthLoader: React.FC = () => {
             exit={{opacity: 0}}
         >
             <div  className='flex w-full justify-center items-center h-full gap-5 '>
-                <div className='text-2xl uppercase font-semibold tracking-widest font-thunder translate-y-1 z-40 relative'>
+                <div className='text-2xl uppercase font-semibold tracking-widest font-thunder translate-y-1 z-40 relative text-black'>
                     Authenticating 
                 </div>
                 <Ring 
                     size={30}
                     lineWeight={5}
                     speed={1} 
-                    color="white" 
+                    color="black" 
                 />
             </div>
         </motion.div>
