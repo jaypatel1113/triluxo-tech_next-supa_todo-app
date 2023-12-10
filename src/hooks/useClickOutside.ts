@@ -23,6 +23,8 @@ const useClickOutside = (callback: () => void) => {
             document.removeEventListener("mousedown", handleClickOutside);
             document.removeEventListener("keydown", handleEscKey);
         };
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [callback]);
 
     return ref;

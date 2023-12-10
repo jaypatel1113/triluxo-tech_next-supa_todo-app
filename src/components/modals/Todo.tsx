@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import useClickOutside from "~/hooks/useClickOutside";
 
+import useClickOutside from "~/hooks/useClickOutside";
 import { getData } from "~/services/api_requests/get";
 import { insert_data } from "~/services/api_requests/insert";
 import { update_data } from "~/services/api_requests/update";

@@ -11,7 +11,6 @@ import { useLoginStore } from '~/store/login';
 const ProtectedRoute = ({children, redirect}: {children: React.ReactNode, redirect: string}) => {
     const { loading, checkAuth } = useAuth();
     const { user } = useLoginStore();
-    const {message, apiLoading} = useLoginStore();
 
     const router = useRouter();
 
