@@ -86,7 +86,7 @@ const Hero = () => {
                 <div className="w-full relative h-[calc(100vh-160px)]">
                     <FetchLoader message="Fetching Todos" />
                 </div> :
-                <div className="grid gap-3 grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-flow-col w-full ">
+                <div className="grid gap-3 grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-flow-row md:grid-flow-col w-full ">
                     {todos && todos.length > 0 ? (
                         todos.map((data) => (
                             <div
@@ -130,14 +130,14 @@ const Hero = () => {
                     )}
 
                     <div
-                        className="fixed bottom-20 md:bottom-5 left-10 text-[#45C077] bg-[#89f1d04f]  cursor-pointer rounded-md p-3 text-2xl"
+                        className="fixed bottom-10 md:bottom-5 left-5 md:left-10 text-[#45C077] bg-[#89f1d04f]  cursor-pointer rounded-md p-3 text-2xl"
                         onClick={handleOpenModal}
                     >
                         <MdOutlineAdd />
                     </div>
 
                     <button
-                        className="fixed bottom-20 md:bottom-5 right-10 bg-[#222]/[0.75] text-white/80 rounded-md p-3 text-2xl h-[50px]"
+                        className="fixed bottom-10 md:bottom-5 right-5 md:right-10 bg-[#222]/[0.75] text-white/80 rounded-md p-3 text-2xl h-[50px]"
                         onClick={() => void handleLogout()}
                     >
                         <TbLogout2 />
