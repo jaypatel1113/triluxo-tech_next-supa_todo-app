@@ -25,8 +25,14 @@ const TodoModal: React.FC = () => {
     }, [selected_todo]);
 
     const handleAdd = async () => {
+        if(!task) {
+            alert("please enter task");
+            return;
+        }
+
         setMessage("Adding");
         setApiLoading(true);
+
 
         if(!user?.id) return;
 
@@ -43,6 +49,11 @@ const TodoModal: React.FC = () => {
     }
 
     const handleUpdate = async () => {
+        if(!task || task.trim() === "") {
+            alert("dont be so smart");
+            return;
+        }
+
         setMessage("Updating");
         setApiLoading(true);
 
